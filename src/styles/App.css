@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.liked {
+ color: green
+}
+
+.notLiked {
+  color: red
+}

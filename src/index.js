@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux"
+import { createStore } from "redux";
+import mainReducer from "./redux/reducers/index"
+import App from "./containers/app.js"
+import {unsplash, authenticationUrl} from "./api/unsplashAPI";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const code = window.location.search.split('code=')[1];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+let initialState = [];
+const store = createStore(mainReducer, initialState)
+
+if (code) {
+    unsplash.auth.userAuthentication(code)
+        .then(res => res.json())
+        .then(json => {
+            localStorage.setItem('token', json.access_token);
+            unsplash.auth.setBearerToken(json.access_token);
+        }).then( window.history.pushState(null, null, '/'))
+        .then(
+            ReactDOM.render(
+                <React.StrictMode>
+                    <BrowserRouter>
+                        <Provider store={store}>
+                            <App />
+                        </Provider>,
+                    </BrowserRouter>
+                </React.StrictMode>,
+                document.querySelector('.app')
+            )
+        );
+} else {
+    window.location.assign(authenticationUrl);
+}
