@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Modal from 'react-responsive-modal';
-import PhotoAttr from '../components/photoAttr.js';
+import PhotoAttr from './photoAttr.js';
 
 const ViewPhoto = ({ data, match: { params } }) => {
 
