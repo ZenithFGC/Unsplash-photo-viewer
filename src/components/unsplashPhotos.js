@@ -41,10 +41,10 @@ class UnsplashPhotos extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        stock: state.photoViewer.photoData,
-        thisPage: state.photoViewer.currentPage,
-        isFetching: state.photoViewer.isFetching,
-        errMsg: state.photoViewer.errorMessage
+        stock: state.data,
+        thisPage: state.thisPage,
+        isFetching: state.isFetching,
+        errMsg: state.errMsg
     }
 }
 
