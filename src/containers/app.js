@@ -30,9 +30,8 @@ class App extends React.Component {
       return (
         <>
         <Switch location={isModal ? this.previousLocation : location}>
-          <Route exact path="/" component= { UnsplashPhotos }>
-            <Redirect to="/home" />
-          </Route>
+          <Route exact path="/" component= { UnsplashPhotos } />
+            
           <Route exact path="/404" component={ PageNotFound } />
         </Switch>
 

@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux"
-import { createStore } from "redux";
-import mainReducer from "./redux/reducers/index"
-import App from "./containers/app.js"
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import mainReducer from "./redux/reducers/index";
+import App from "./containers/app.js";
 import {unsplash, authenticationUrl} from "./api/unsplashAPI";
+import thunk from 'redux-thunk';
 
 const code = window.location.search.split('code=')[1];
 
 let initialState = [];
-const store = createStore(mainReducer, initialState)
+const store = createStore(mainReducer, applyMiddleware(thunk)
+  );
 
 if (code) {
     unsplash.auth.userAuthentication(code)
@@ -25,7 +27,7 @@ if (code) {
                     <BrowserRouter>
                         <Provider store={store}>
                             <App />
-                        </Provider>,
+                        </Provider>
                     </BrowserRouter>
                 </React.StrictMode>,
                 document.querySelector('.app')

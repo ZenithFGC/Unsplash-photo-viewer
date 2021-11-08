@@ -1,5 +1,5 @@
 import React from "react";
-import { unsplash, authenticationUrl } from '../api/unsplashAPI.js';
+import { unsplash } from '../api/unsplashAPI.js';
 import { connect } from "react-redux";
 import { setPhoto } from "../redux/actions/index";
 import Photo from "./photo";
@@ -13,7 +13,8 @@ class UnsplashPhotos extends React.Component {
     }
 
     handleScroll(ev) {
-        ev.preventDDefault();
+        ev.preventDefault();
+        console.log(this.props);
         const {thisPage, setPhoto } = this.props;
         if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 120) &&!this.props.isFetching)
          {
@@ -22,8 +23,9 @@ class UnsplashPhotos extends React.Component {
     }
 
     render() {
-        const {stock, isFetching, errMsg} = this.props;
+        const {stock} = this.props;
         let num = 0;
+        
         return (
             <div className="">
                 <ul className="">
@@ -34,8 +36,19 @@ class UnsplashPhotos extends React.Component {
                             photo={photo} 
                         />)}
                 </ul>
+                {/* <button
+                className=""
+                onClick={ev => {
+                if(!this.props.isFetching) {
+                setPhoto(thisPage)
+           }
+        }}
+        >
+          Загрузить еще
+        </button> */}
             </div>
         )
+        
     }
 }
 

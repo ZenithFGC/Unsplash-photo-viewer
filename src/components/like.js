@@ -25,7 +25,7 @@ const Like = ({ count, like, dislike, idPhoto, isLiked, data}) => {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.photoViewer.data
+        data: state.data
     }
 };
 

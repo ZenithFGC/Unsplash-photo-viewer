@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Like from '../components/like.js';
 
 const PhotoAttr = ({ detailPhoto }) => {

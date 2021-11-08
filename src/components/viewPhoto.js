@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
@@ -36,7 +35,7 @@ const ViewPhoto = ({ data, match: { params } }) => {
 };
 const mapStateToProps = state => {
   return {
-    data: state.photoViewer.data,
+    data: state.data,
   }
 };
 
