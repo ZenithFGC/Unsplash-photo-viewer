@@ -1,0 +1,41 @@
+.container {
+    max-width: 1540px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    font-family: PolandCannedIntoFuture;
+    color: #75180c;
+    font-size: 88px;
+    margin-left: 20px;
+    border-bottom: solid 1px;
+    height: 101px;
+    margin-bottom: 20px;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+
+  @media(max-width:800px) {
+    .gallery {
+        justify-content: center;
+    }
+    .header {
+        font-size: 70px;
+        margin-bottom: 15px;
+        height: 85px;
+    }
+}
+
+@media(max-width:525px) {
+    
+    .header {
+        font-size: 41px;
+        margin-bottom: 9px;
+        height: 60px;
+    }
+}

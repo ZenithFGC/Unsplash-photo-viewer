@@ -4,14 +4,14 @@ const dateFormat = dateString => {
   return date.toLocaleDateString('ru-RU', options)
  };
 
-const dataHelper = photoData => {
- return photoData.map(photo => {
+const dataHelper = data => {
+ return data.map(photo => {
    return ({
      id: photo.id,
      isLiked: photo ? photo.liked_by_user : false,
      created: photo ? dateFormat(photo.created_at) : '',
      photoImageSmall: photo && photo.urls ? photo.urls.small : '#',
-     photoImgRegular: photo && photo.urls ? photo.urls.regular : '#',
+     photoImageRegular: photo && photo.urls ? photo.urls.regular : '#',
      likes: photo ? photo.likes : 0,
      authorName: photo && photo.user ? photo.user.name : '',
      authorLink: photo && photo.user && photo.user.links ? photo.user.links.html : '#',

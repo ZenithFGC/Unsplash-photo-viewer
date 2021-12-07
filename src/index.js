@@ -7,6 +7,7 @@ import mainReducer from "./redux/reducers/index";
 import App from "./containers/app.js";
 import {unsplash, authenticationUrl} from "./api/unsplashAPI";
 import thunk from 'redux-thunk';
+import "../src/styles/index.css"
 
 const code = window.location.search.split('code=')[1];
 

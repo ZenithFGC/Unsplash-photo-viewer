@@ -1,5 +1,6 @@
 import React from 'react';
 import Like from '../components/like.js';
+import "../styles/photoAttr.css"
 
 const PhotoAttr = ({ detailPhoto }) => {
   const {
@@ -13,21 +14,20 @@ const PhotoAttr = ({ detailPhoto }) => {
     } = detailPhoto;
 
   return (
-        <div className="">
-            <div className="">
-                <a href={ authorLink } target="_blank">
+        <div className="gallery-item_detail_attr">
+            <div className="gallery-item_detail_info">
+                <a href={ authorLink } target="_blank" className = "gallery-item_detail_author">
                     <img src={ authorAvatar }/>
                     { authorName }
                 </a>
-                <div className="">
-                    { created }
+                <div className="gallery-item_detail_date">
+                    ( { created } )
                 </div>
             </div>
-
-            <div className="">
+             <div className="gallery-item_detail_likes">
             <Like
-                likeCount={ likes }
-                photoId={ id }
+                count={ likes }
+                idPhoto={ id }
                 isLiked={ isLiked }
             />
             </div>

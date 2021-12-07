@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Like from "./like";
+import "../styles/photo.css"
 
 const Photo = ({ photo }) => {
     const {
@@ -14,39 +15,38 @@ const Photo = ({ photo }) => {
         likes,
     } = photo;
 
-
+    
     return (
-        <li className="" key={id}>
-            <div className="">
-                <div className="">
-                    <div className="">
-                        <a href={authorLink} target="_blank">
-                        <img src={authorAvatar}/>
-                        {authorName}
-                        </a>
+        <li className="gallery-item" key={id}>
+            <div className="gallery-item_container">
+                <img className="gallery-item_img"
+                    src={photoImageSmall}
+                />
+                <div className="gallery-item_info">
+                    <a href={authorLink} target="_blank">
+                    <img src={authorAvatar}/>
+                    {authorName}
+                    </a>
+                    <div className="gallery-item_info_date">{created}</div>
+                    <div className="gallery-item_like">
+                        <Like
+                            count={likes} 
+                            idPhoto={id}
+                            isLiked={isLiked}
+                        />
                     </div>
-                    <div className="">{created}</div>
                 </div>
-                <Link className=""
+                
+                <Link className="gallery-item_detail_link"
                     to={{
-                        pathname: `/stock.js/${id}`,
+                        pathname: `/photos/${id}`,
                         state: { modal: true },
-                        photoId: id,
-                    }}>
-
+                        idPhoto: id,
+                    }} >
                 </Link>
-                <div className="">
-                    <Like
-                        likeCount={likes} 
-                        photoId={id}
-                        isLiked={isLiked}
-                    />
-                </div>
             </div>
-            <img className="gallery__item__img"
-                src={photoImageSmall}
-            />
         </li>
+        
     )
 
 };

@@ -1,0 +1,82 @@
+.gallery-item_detail_photo {
+    display: block;
+      margin: 0 auto;
+      max-height: 84vh;
+      max-width: 100%;
+  }
+
+  .modalWrapper {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  
+  .react-responsive-modal-root {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .react-responsive-modal-overlay {
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  
+  .react-responsive-modal-container {
+    height: 100%;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+  }
+  
+  .react-responsive-modal-modal {
+    max-width: 100%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    background: #fff;
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 25%);
+    margin: 1.2rem;
+    padding: 1.2rem;
+    position: relative;
+    overflow-y: auto;
+  }
+  
+  .btn-more {
+    margin-top: 10px;
+    margin-bottom: 100px;
+  }
+  
+  .react-responsive-modal-closeButton {
+    position: absolute;
+    top: 25px;
+    right: 26px;
+    width: 42px;
+    height: 42px;
+    opacity: 53%;
+    }
+  
+  .modalVisible {
+    visibility: visible;
+  }
+
+  @media(max-width:525px) {
+    .react-responsive-modal-modal {
+        padding: 0.5rem;
+    }
+    .react-responsive-modal-closeButton {
+        width: 35px;
+        height: 35px;
+        top: 17px;
+        right: 17px;
+    }
+}

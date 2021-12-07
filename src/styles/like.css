@@ -1,0 +1,13 @@
+.like {
+    display: flex;
+  }
+
+.liked {
+color: #0e4c87;
+padding-right: 4px;
+}
+
+.notLiked {
+    color: #abced9;
+    padding-right: 4px;
+}
